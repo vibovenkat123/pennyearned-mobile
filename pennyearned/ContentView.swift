@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var onWelcome: Bool = true
     var body: some View {
-        VStack {
-            Text("PennyEarned")
-                .font(.title)
-                .padding(.bottom, 40)
-            SignUpButton()
+        if onWelcome {
+            // the very first page you see
+            BeginningPage(onWelcome: $onWelcome)
+        } else {
+            FirstSignUpPage()
         }
-        .padding()
     }
 }
 
