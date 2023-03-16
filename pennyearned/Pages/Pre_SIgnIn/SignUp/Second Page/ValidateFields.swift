@@ -13,7 +13,7 @@ func validatePwd(password: String) -> Bool {
 
 func validateEmail(email: String) {
     print(email)
-    guard let url = URL(string: "https://tu7m2gsigi.execute-api.us-east-1.amazonaws.com/dev/api/user") else {
+    guard let url = URL(string: "http://localhost:3002/api/user") else {
         return
     }
     var request = URLRequest(url: url)
