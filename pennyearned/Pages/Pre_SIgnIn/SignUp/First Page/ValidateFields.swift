@@ -12,8 +12,7 @@ func validatePwd(password: String) -> Bool {
 }
 
 func validateEmail(email: String) {
-    print(email)
-    guard let url = URL(string: "http://localhost:3002/api/user") else {
+    guard let url = URL(string: "http://192.168.1.181:3002/v1/api/user") else {
         return
     }
     var request = URLRequest(url: url)
@@ -24,22 +23,16 @@ func validateEmail(email: String) {
         "email": email
     ]
     request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-    print(request)
     let task = URLSession.shared.dataTask(with: request, completionHandler: { data, res, error in
         guard
-            let data = data,
             let res = res as? HTTPURLResponse,
             error == nil
         else {
-            print("error", error ?? URLError(.badServerResponse))
             return
         }
         guard 202 ~= res.statusCode else {
-            print(data)
-            print("The status code returned was not successful. Status Code: \(res.statusCode)")
             return
         }
-        print("Sucessfully called the api with status code: \(res.statusCode)")
     })
     task.resume()
 }

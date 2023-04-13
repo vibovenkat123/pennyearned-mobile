@@ -7,17 +7,17 @@
 import SwiftUI
 struct FirstSignUpPage: View {
     @State private var email: String = ""
-    @State private var password: String = ""
     @State private var showAlert: Bool = false
     var body: some View {
         NavigationStack {
             VStack{
-                FormInputField(text: $email, placeholder: "Email")
+                FormInputField(text: $email, placeholder: "Email", secure: false)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
+                    .textContentType(.emailAddress)
                 GoToButton(destination:
                             AnyView(
-                                SecondSignUpPage(email: email, password: password)
+                                SecondSignUpPage(email: email)
                                     .onAppear(perform:{
                                         validateEmail(email: email)
                                     })

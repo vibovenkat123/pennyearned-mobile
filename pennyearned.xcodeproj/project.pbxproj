@@ -25,6 +25,7 @@
 		803A1C3D29BECCB3007D92C5 /* ValidateFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C3C29BECCB3007D92C5 /* ValidateFields.swift */; };
 		803A1C4029BFFE67007D92C5 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C3F29BFFE67007D92C5 /* FeatureCell.swift */; };
 		8073BB8329BABA3800B29710 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BB8229BABA3800B29710 /* globals.swift */; };
+		8082DE6B29E772A4004C6616 /* ValidateSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8082DE6A29E772A4004C6616 /* ValidateSignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		803A1C3C29BECCB3007D92C5 /* ValidateFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFields.swift; sourceTree = "<group>"; };
 		803A1C3F29BFFE67007D92C5 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		8073BB8229BABA3800B29710 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
+		8082DE6A29E772A4004C6616 /* ValidateSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateSignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		803A1C3729BEAC77007D92C5 /* First Page */ = {
 			isa = PBXGroup;
 			children = (
+				803A1C3C29BECCB3007D92C5 /* ValidateFields.swift */,
 				803A1C2329BE9CC0007D92C5 /* SignUpFirst.swift */,
 			);
 			path = "First Page";
@@ -235,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				803A1C3929BEACBF007D92C5 /* SignUpSecond.swift */,
-				803A1C3C29BECCB3007D92C5 /* ValidateFields.swift */,
+				8082DE6A29E772A4004C6616 /* ValidateSignUp.swift */,
 			);
 			path = "Second Page";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				803A1C2829BEA198007D92C5 /* FormInputField.swift in Sources */,
 				803A1C4029BFFE67007D92C5 /* FeatureCell.swift in Sources */,
 				8073BB8329BABA3800B29710 /* globals.swift in Sources */,
+				8082DE6B29E772A4004C6616 /* ValidateSignUp.swift in Sources */,
 				8017B73129BAABBC0062AB66 /* ContentView.swift in Sources */,
 				803A1C3A29BEACBF007D92C5 /* SignUpSecond.swift in Sources */,
 				8017B72F29BAABBC0062AB66 /* pennyearnedApp.swift in Sources */,
@@ -563,8 +567,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -592,8 +596,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
