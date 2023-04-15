@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 func SignUp() {
     // TODO: do sign up
     print("Not yet implemented: Tried to Sign Up")

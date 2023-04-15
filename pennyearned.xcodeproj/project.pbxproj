@@ -14,9 +14,10 @@
 		8017B74029BAABBD0062AB66 /* pennyearnedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017B73F29BAABBD0062AB66 /* pennyearnedTests.swift */; };
 		8017B74A29BAABBD0062AB66 /* pennyearnedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017B74929BAABBD0062AB66 /* pennyearnedUITests.swift */; };
 		8017B74C29BAABBD0062AB66 /* pennyearnedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017B74B29BAABBD0062AB66 /* pennyearnedUITestsLaunchTests.swift */; };
+		8027026629EB0A5F0070EE7A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 8027026529EB0A5F0070EE7A /* KeychainAccess */; };
+		8027026829EB14410070EE7A /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027026729EB14410070EE7A /* MainPage.swift */; };
 		803A1C1E29BE9784007D92C5 /* BeginningPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C1D29BE9784007D92C5 /* BeginningPage.swift */; };
 		803A1C2029BE9AF4007D92C5 /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C1F29BE9AF4007D92C5 /* signup.swift */; };
-		803A1C2229BE9BF2007D92C5 /* signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C2129BE9BF2007D92C5 /* signin.swift */; };
 		803A1C2429BE9CC0007D92C5 /* SignUpFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C2329BE9CC0007D92C5 /* SignUpFirst.swift */; };
 		803A1C2629BE9CFE007D92C5 /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C2529BE9CFE007D92C5 /* SignInPage.swift */; };
 		803A1C2829BEA198007D92C5 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C2729BEA198007D92C5 /* FormInputField.swift */; };
@@ -24,8 +25,9 @@
 		803A1C3A29BEACBF007D92C5 /* SignUpSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C3929BEACBF007D92C5 /* SignUpSecond.swift */; };
 		803A1C3D29BECCB3007D92C5 /* ValidateFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C3C29BECCB3007D92C5 /* ValidateFields.swift */; };
 		803A1C4029BFFE67007D92C5 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C3F29BFFE67007D92C5 /* FeatureCell.swift */; };
+		805016D829EB00BD005935D5 /* signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805016D729EB00BD005935D5 /* signin.swift */; };
 		8073BB8329BABA3800B29710 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BB8229BABA3800B29710 /* globals.swift */; };
-		8082DE6B29E772A4004C6616 /* ValidateSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8082DE6A29E772A4004C6616 /* ValidateSignUp.swift */; };
+		8082DE6B29E772A4004C6616 /* FinishSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8082DE6A29E772A4004C6616 /* FinishSignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +58,9 @@
 		8017B74529BAABBD0062AB66 /* pennyearnedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pennyearnedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8017B74929BAABBD0062AB66 /* pennyearnedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pennyearnedUITests.swift; sourceTree = "<group>"; };
 		8017B74B29BAABBD0062AB66 /* pennyearnedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pennyearnedUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8027026729EB14410070EE7A /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		803A1C1D29BE9784007D92C5 /* BeginningPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginningPage.swift; sourceTree = "<group>"; };
 		803A1C1F29BE9AF4007D92C5 /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
-		803A1C2129BE9BF2007D92C5 /* signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signin.swift; sourceTree = "<group>"; };
 		803A1C2329BE9CC0007D92C5 /* SignUpFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirst.swift; sourceTree = "<group>"; };
 		803A1C2529BE9CFE007D92C5 /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		803A1C2729BEA198007D92C5 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
@@ -66,8 +68,9 @@
 		803A1C3929BEACBF007D92C5 /* SignUpSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecond.swift; sourceTree = "<group>"; };
 		803A1C3C29BECCB3007D92C5 /* ValidateFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFields.swift; sourceTree = "<group>"; };
 		803A1C3F29BFFE67007D92C5 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		805016D729EB00BD005935D5 /* signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signin.swift; sourceTree = "<group>"; };
 		8073BB8229BABA3800B29710 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
-		8082DE6A29E772A4004C6616 /* ValidateSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateSignUp.swift; sourceTree = "<group>"; };
+		8082DE6A29E772A4004C6616 /* FinishSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8027026629EB0A5F0070EE7A /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +124,7 @@
 			children = (
 				8017B72E29BAABBC0062AB66 /* pennyearnedApp.swift */,
 				8017B73029BAABBC0062AB66 /* ContentView.swift */,
+				805016D729EB00BD005935D5 /* signin.swift */,
 				803A1C2F29BEAAD1007D92C5 /* Pages */,
 				803A1C2B29BEAA12007D92C5 /* Components */,
 				803A1C3429BEABF3007D92C5 /* Globals */,
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				803A1C3029BEAB3E007D92C5 /* Pre_SIgnIn */,
+				8027026729EB14410070EE7A /* MainPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -196,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				803A1C2529BE9CFE007D92C5 /* SignInPage.swift */,
-				803A1C2129BE9BF2007D92C5 /* signin.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -238,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				803A1C3929BEACBF007D92C5 /* SignUpSecond.swift */,
-				8082DE6A29E772A4004C6616 /* ValidateSignUp.swift */,
+				8082DE6A29E772A4004C6616 /* FinishSignUp.swift */,
 			);
 			path = "Second Page";
 			sourceTree = "<group>";
@@ -275,6 +280,9 @@
 			dependencies = (
 			);
 			name = pennyearned;
+			packageProductDependencies = (
+				8027026529EB0A5F0070EE7A /* KeychainAccess */,
+			);
 			productName = pennyearned;
 			productReference = 8017B72B29BAABBC0062AB66 /* pennyearned.app */;
 			productType = "com.apple.product-type.application";
@@ -347,6 +355,9 @@
 				Base,
 			);
 			mainGroup = 8017B72229BAABBC0062AB66;
+			packageReferences = (
+				8027026429EB0A5F0070EE7A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 8017B72C29BAABBC0062AB66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -394,15 +405,16 @@
 				803A1C2829BEA198007D92C5 /* FormInputField.swift in Sources */,
 				803A1C4029BFFE67007D92C5 /* FeatureCell.swift in Sources */,
 				8073BB8329BABA3800B29710 /* globals.swift in Sources */,
-				8082DE6B29E772A4004C6616 /* ValidateSignUp.swift in Sources */,
+				8082DE6B29E772A4004C6616 /* FinishSignUp.swift in Sources */,
+				805016D829EB00BD005935D5 /* signin.swift in Sources */,
 				8017B73129BAABBC0062AB66 /* ContentView.swift in Sources */,
 				803A1C3A29BEACBF007D92C5 /* SignUpSecond.swift in Sources */,
 				8017B72F29BAABBC0062AB66 /* pennyearnedApp.swift in Sources */,
 				803A1C2029BE9AF4007D92C5 /* signup.swift in Sources */,
+				8027026829EB14410070EE7A /* MainPage.swift in Sources */,
 				803A1C2A29BEA9C3007D92C5 /* GoToButton.swift in Sources */,
 				803A1C2429BE9CC0007D92C5 /* SignUpFirst.swift in Sources */,
 				803A1C1E29BE9784007D92C5 /* BeginningPage.swift in Sources */,
-				803A1C2229BE9BF2007D92C5 /* signin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +739,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8027026429EB0A5F0070EE7A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8027026529EB0A5F0070EE7A /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8027026429EB0A5F0070EE7A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8017B72329BAABBC0062AB66 /* Project object */;
 }

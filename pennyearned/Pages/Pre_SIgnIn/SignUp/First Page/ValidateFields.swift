@@ -6,13 +6,11 @@
 //
 
 import Foundation
-
 func validatePwd(password: String) -> Bool {
     return password.count >= 8 && password.count <= 20
 }
-
 func validateEmail(email: String) {
-    guard let url = URL(string: "http://192.168.1.181:3002/v1/api/user") else {
+    guard let url = URL(string: "\(Globals.server)/v1/api/user") else {
         return
     }
     var request = URLRequest(url: url)

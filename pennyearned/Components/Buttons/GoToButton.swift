@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GoToButton: View {
-    typealias validatingFunction = (_ text: String) -> Bool
     var destination: AnyView
     var text: String
     var imageName: String?

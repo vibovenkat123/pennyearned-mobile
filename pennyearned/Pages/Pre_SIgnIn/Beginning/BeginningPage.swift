@@ -9,9 +9,10 @@ import SwiftUI
 
 struct BeginningPage: View {
     @Binding var onWelcome: Bool
+    @Binding var onSignup: Bool
     var body: some View {
         VStack {
-            Text("")
+            FirstSignUpPage(emailBad: false)
         }.sheet(isPresented: $onWelcome, content: {
             VStack {
                 Spacer()
@@ -32,7 +33,10 @@ struct BeginningPage: View {
                 Spacer()
                 Spacer()
                 VStack {
-                    Button(action: {onWelcome = false}) {
+                    Button(action: {
+                        onWelcome = false
+                        onSignup = true
+                    }) {
                         HStack {
                             Spacer()
                             Text("Get Started")
@@ -47,6 +51,7 @@ struct BeginningPage: View {
                 .padding()
                 Spacer()
             }
+            .interactiveDismissDisabled()
         })
     }
 }
