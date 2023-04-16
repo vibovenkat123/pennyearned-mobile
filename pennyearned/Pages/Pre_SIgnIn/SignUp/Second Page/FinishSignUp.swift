@@ -35,7 +35,7 @@ enum Response {
 func finishSignup(credentials: Credentials, code: String, completion: @escaping (Response) -> Void) {
     let account = credentials.username
     let password = credentials.password
-    guard let url = URL(string: "\(Globals.server)/v1/api/user/verify/\(code)") else {
+    guard let url = URL(string: "\(Globals.userServer)/v1/api/user/verify/\(code)") else {
         completion(.misc)
         return
     }

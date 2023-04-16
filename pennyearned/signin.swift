@@ -20,7 +20,7 @@ struct UserRes: Codable {
     var user: User
 }
 func SignIn(username: String, password: String, completion: @escaping (SignUpRes) -> Void) {
-    guard var url = URL(string: "\(Globals.server)/v1/api/user/session") else {
+    guard var url = URL(string: "\(Globals.userServer)/v1/api/user/session") else {
         completion(.notFound)
         return
     }
@@ -47,7 +47,7 @@ func SignIn(username: String, password: String, completion: @escaping (SignUpRes
         }
         do {
             let response = try JSONDecoder().decode(AccessRes.self, from: data)
-            url = URL(string: "\(Globals.server)/v1/api/user/\(response.user.access_token)")!
+            url = URL(string: "\(Globals.userServer)/v1/api/user/\(response.user.access_token)")!
             var newReq = URLRequest(url: url)
             newReq.httpMethod = "GET"
             newReq.setValue("application/json", forHTTPHeaderField: "Content-Type")
