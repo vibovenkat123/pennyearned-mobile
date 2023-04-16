@@ -42,6 +42,7 @@ func SignIn(username: String, password: String, completion: @escaping (SignUpRes
             return
         }
         guard 200 ~= res.statusCode else {
+            print(res.statusCode, username, password)
             completion(.notFound)
             return
         }
@@ -70,6 +71,7 @@ func SignIn(username: String, password: String, completion: @escaping (SignUpRes
                     user.password = password
                     completion(.good(user))
                 } catch {
+                    print("Cant decode")
                     completion(.notFound)
                 }
             })

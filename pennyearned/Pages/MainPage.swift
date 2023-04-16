@@ -10,57 +10,70 @@ import SwiftUI
 struct ExpenseListView: View {
     let expenses: [Expense]
     let deleteExpense: (Expense) -> Void
-    let updateExpense: (Expense, String?, Int?) -> Void // Added parameter for updating an expense
-    @State private var isShowingConfirmationAlert = false
+    let updateExpense: (Expense, String?, Int?) -> Void
+    @State private var isShowingAlert = false
     @State private var isShowingEditSheet = false
     @State private var expenseToDelete: Expense?
     @State private var expenseToUpdate: Expense?
+    
     var body: some View {
         List(expenses, id: \.id) { expense in
-            HStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(expense.name).font(.headline)
-                    Text("$\(expense.spent)").font(.subheadline)
+            Button(action: {
+            }) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(expense.name).font(.headline)
+                        Text("$\(expense.spent)").font(.subheadline)
+                    }.foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: "dollarsign.circle")
+                        .foregroundColor(.blue)
+                    Button(action: {
+                        expenseToUpdate = expense
+                        isShowingAlert = true
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    .foregroundColor(.green)
+                    Button(action: {
+                        expenseToDelete = expense
+                        isShowingAlert = true
+                    }) {
+                        Image(systemName: "trash")
+                    }
+                    .foregroundColor(.red)
                 }
-                Spacer()
-                Image(systemName: "dollarsign.circle")
-                    .foregroundColor(.blue)
-                Button(action: {
-                    expenseToUpdate = expense
-                    isShowingConfirmationAlert = true
-                }) {
-                    Image(systemName: "square.and.pencil")
-                }
-                .foregroundColor(.green)
-                Button(action: {
-                    expenseToDelete = expense
-                    isShowingConfirmationAlert = true
-                }) {
-                    Image(systemName: "trash")
-                }
-                .foregroundColor(.red)
             }
         }
         .listStyle(.insetGrouped)
-        .alert(isPresented: $isShowingConfirmationAlert) {
-            if let expense = expenseToUpdate {
-                return Alert(title: Text("Update Expense"), message: Text("Update the name and/or spent amount"), primaryButton: .default(Text("Update")) {
-                    isShowingEditSheet = true
-                }, secondaryButton: .cancel())
-            } else if let expense = expenseToDelete {
+        .alert(isPresented: $isShowingAlert) {
+            if let expense = expenseToDelete {
                 return Alert(title: Text("Delete Expense"), message: Text("Are you sure you want to delete this expense?"), primaryButton: .destructive(Text("Delete")) {
                     deleteExpense(expense)
-                }, secondaryButton: .cancel())
+                    expenseToDelete = nil
+                }, secondaryButton: .cancel() {
+                    expenseToDelete = nil
+                    isShowingAlert = false
+                })
+            } else if let expense = expenseToUpdate{
+                return Alert(title: Text("Update Expense"), message: Text("Do you want to update this expense"), primaryButton: .default(Text("Update")) {
+                    isShowingEditSheet = true
+                }, secondaryButton: .cancel() {
+                    expenseToUpdate = nil
+                    isShowingAlert = false
+                })
             } else {
-                return Alert(title: Text("Error"), message: Text("Something went wrong"), dismissButton: .default(Text("OK")))
+                return Alert(title: Text("error"))
             }
         }
         .sheet(isPresented: $isShowingEditSheet) {
-            ExpenseEditView(expense: expenseToUpdate!, isShowingSheet: $isShowingEditSheet, newName: "", newSpent: "", updateExpense: updateExpense)
+            if let _ = expenseToUpdate {
+                ExpenseEditView(expense: expenseToUpdate!, isShowingSheet: $isShowingEditSheet, newName: "", newSpent: "", updateExpense: updateExpense)
+            }
         }
+
     }
 }
-
 struct ExpenseEditView: View {
     let expense: Expense
     @Binding var isShowingSheet: Bool

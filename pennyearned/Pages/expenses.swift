@@ -53,6 +53,7 @@ func GetAll(userId: String, completion: @escaping (ExpensesRes) -> Void) {
             completion(.good(expenses.expenses))
             return
         } else {
+            print(try? JSONSerialization.jsonObject(with: data, options: .allowFragments))
             completion(.bad("Couldn't decode"))
         }
     }
@@ -85,7 +86,7 @@ func AddExpense(ownerId: String, name: String, spent: Int, completion: @escaping
             return
         }
 
-        guard let response = response as? HTTPURLResponse, response.statusCode == 201 else {
+        guard let res = response as? HTTPURLResponse, res.statusCode == 201 else {
             completion(.bad)
             return
         }

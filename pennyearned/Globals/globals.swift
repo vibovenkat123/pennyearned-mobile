@@ -10,8 +10,8 @@ import SwiftUI
 import KeychainAccess
 struct Globals {
     static let btnColor:Color = Color(red: 0.06274509803921569, green: 0.5215686274509804, blue: 0.8549019607843137)
-    static let userServer: String = "http://192.168.1.181:3002"
-    static let expensesServer: String = "http://192.168.1.181:3001"
+    static let userServer: String = "https://aq9q963cc2.execute-api.us-east-1.amazonaws.com/dev"
+    static let expensesServer: String = "https://aq9q963cc2.execute-api.us-east-1.amazonaws.com/dev"
     static let keychain = Keychain(service: "com.vaibhav.pennyearned.keychain")
                             .label("pennyearned credentials")
                             .synchronizable(true)
