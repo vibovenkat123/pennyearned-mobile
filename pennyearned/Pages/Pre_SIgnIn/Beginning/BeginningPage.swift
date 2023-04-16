@@ -23,11 +23,11 @@ struct BeginningPage: View {
                     .padding(.horizontal, 48)
                 Spacer()
                 VStack(spacing: 24) {
-                    FeatureCell(image: "dollarsign.square", title: "Organize your expenses", subtitle: "See whats costing you the most, and work towards cutting it down", color: .green)
+                    FeatureCell(image: "dollarsign.square", title: "Organize your expenses", subtitle: "See whats costing you the most, and work towards cutting it down", color: .gray)
                     
-                    FeatureCell(image: "gift", title: "Manage your budgets", subtitle: "Set your income and what your budgets are so you can start saving towards the next big thing", color: .red)
+                    FeatureCell(image: "cloud", title: "All synced", subtitle: "Pennyearned allows you to kep your expenses synced across other devices", color: .blue)
                     
-                    FeatureCell(image: "lock", title: "No credit card required", subtitle: "Pennyearned keeps the sensitive data out of this, it doesn't use a credit card to track income or expenses", color: .blue)
+                    FeatureCell(image: "lock", title: "No credit card required", subtitle: "Pennyearned keeps the sensitive data out of this, it doesn't use a credit card to track income or expenses", color: .green)
                 }
                 .padding(.leading)
                 Spacer()
