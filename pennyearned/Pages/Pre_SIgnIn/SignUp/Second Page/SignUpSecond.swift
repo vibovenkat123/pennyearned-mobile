@@ -49,7 +49,7 @@ struct SecondSignUpPage: View {
 
 
 struct ThisPage: View {
-    @State private var code: String = "123456"
+    @State private var code: String = ""
     @State private var password: String = ""
     @State private var username: String = ""
     @State private var pwdBad: Bool = false
@@ -65,7 +65,7 @@ struct ThisPage: View {
     var body: some View {
         NavigationStack {
             VStack{
-                FormInputField(text: $code, placeholder: code, secure: false)
+                FormInputField(text: $code, placeholder: "Code (check inbox or spam/junk)", secure: false)
                     .keyboardType(.numberPad)
                     .onReceive(Just(code)) { newCode in
                         let filtered = newCode.filter { "0123456789".contains($0) }

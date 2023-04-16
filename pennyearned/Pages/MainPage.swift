@@ -84,13 +84,13 @@ private func daysSinceLastUpdate(dateUpdated: String) -> String {
         let components = calendar.dateComponents([.day, .hour, .minute, .second], from: date, to: now)
         
         if let days = components.day, days > 0 {
-            return "\(days) days ago"
+            return "\(days) \(days == 1 ? "day": "days") ago"
         } else if let hours = components.hour, hours > 0 {
-            return "\(hours) hours ago"
+            return "\(hours) \(hours == 1 ? "hour": "hours") ago"
         } else if let minutes = components.minute, minutes > 0 {
-            return "\(minutes) minutes ago"
+            return "\(minutes) \(minutes == 1 ? "minute" : "minutes") ago"
         } else if let seconds = components.second, seconds > 0 {
-            return "\(seconds) seconds ago"
+            return "\(seconds) \(seconds == 1 ? "second" : "seconds") ago"
         } else {
             return "now"
         }
