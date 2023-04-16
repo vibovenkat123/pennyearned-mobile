@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct ExpenseListView: View {
     let expenses: [Expense]
     let deleteExpense: (Expense) -> Void
@@ -15,7 +14,6 @@ struct ExpenseListView: View {
     @State private var isShowingEditSheet = false
     @State private var expenseToDelete: Expense?
     @State private var expenseToUpdate: Expense?
-    
     var body: some View {
         List(expenses, id: \.id) { expense in
             Button(action: {
@@ -24,6 +22,7 @@ struct ExpenseListView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(expense.name).font(.headline)
                         Text("$\(expense.spent)").font(.subheadline)
+                        Text("\(daysSinceLastUpdate(dateUpdated: expense.date_updated))").font(.caption)
                     }.foregroundColor(.primary)
                     Spacer()
                     Image(systemName: "dollarsign.circle")
@@ -71,9 +70,35 @@ struct ExpenseListView: View {
                 ExpenseEditView(expense: expenseToUpdate!, isShowingSheet: $isShowingEditSheet, newName: "", newSpent: "", updateExpense: updateExpense)
             }
         }
-
+    }
+    
+}
+private func daysSinceLastUpdate(dateUpdated: String) -> String {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
+    formatter.timeZone = TimeZone(secondsFromGMT: 0)
+    
+    if let date = formatter.date(from: dateUpdated) {
+        let calendar = Calendar.current
+        let now = Date()
+        let components = calendar.dateComponents([.day, .hour, .minute, .second], from: date, to: now)
+        
+        if let days = components.day, days > 0 {
+            return "\(days) days ago"
+        } else if let hours = components.hour, hours > 0 {
+            return "\(hours) hours ago"
+        } else if let minutes = components.minute, minutes > 0 {
+            return "\(minutes) minutes ago"
+        } else if let seconds = components.second, seconds > 0 {
+            return "\(seconds) seconds ago"
+        } else {
+            return "now"
+        }
+    } else {
+        return dateUpdated
     }
 }
+
 struct ExpenseEditView: View {
     let expense: Expense
     @Binding var isShowingSheet: Bool
