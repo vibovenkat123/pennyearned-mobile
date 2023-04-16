@@ -74,6 +74,7 @@ func AddExpense(ownerId: String, name: String, spent: Int, completion: @escaping
     ]
     
     guard let httpBody = try? JSONSerialization.data(withJSONObject: requestBody, options: []) else {
+            print("here 77")
         completion(.bad)
         return
     }
@@ -82,11 +83,14 @@ func AddExpense(ownerId: String, name: String, spent: Int, completion: @escaping
 
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         guard error == nil else {
+            print("here 86")
             completion(.bad)
             return
         }
 
-        guard let res = response as? HTTPURLResponse, res.statusCode == 201 else {
+        guard let res = response as? HTTPURLResponse, res.statusCode == 201 else  {
+            let res = response as? HTTPURLResponse
+            print(res!.statusCode)
             completion(.bad)
             return
         }
