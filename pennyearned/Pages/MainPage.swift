@@ -114,6 +114,7 @@ struct ExpenseEditView: View {
 struct ExpenseFormView: View {
     @Binding var newExpenseName: String
     @Binding var newExpenseSpent: Int
+    @FocusState var isFocused : Bool
     let addUserExpense: () -> Void
     
     var body: some View {
@@ -121,13 +122,18 @@ struct ExpenseFormView: View {
             HStack {
                 TextField("Name", text: $newExpenseName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .focused($isFocused)
                 TextField("Spent", value: $newExpenseSpent, formatter: NumberFormatter())
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
+                    .focused($isFocused)
             }
             .padding(.bottom, 10)
             
-            Button(action: addUserExpense) {
+            Button(action: {
+                isFocused = false
+                addUserExpense()
+            }) {
                 Text("Add")
                     .foregroundColor(.white)
                     .padding(.vertical, 10)
