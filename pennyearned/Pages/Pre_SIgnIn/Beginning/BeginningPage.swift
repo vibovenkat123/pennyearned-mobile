@@ -21,6 +21,12 @@ struct BeginningPage: View {
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 48)
+                Text("By Vaibhav Venkat")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 48)
+                    .foregroundColor(.gray)
                 Spacer()
                 VStack(spacing: 24) {
                     FeatureCell(image: "dollarsign.square", title: "Organize your expenses", subtitle: "See whats costing you the most, and work towards cutting it down", color: .gray)
