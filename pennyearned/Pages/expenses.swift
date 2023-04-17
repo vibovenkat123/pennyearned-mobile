@@ -142,7 +142,7 @@ func UpdateExpense(expenseId: String, name: String?, spent: Int?, completion: @e
     }
     request.httpBody = httpBody
     URLSession.shared.dataTask(with: request) { data, response, error in
-        if let error = error {
+        if let _ = error {
             completion(.bad)
             return
         }

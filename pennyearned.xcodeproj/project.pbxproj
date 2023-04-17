@@ -28,6 +28,7 @@
 		803A1C4029BFFE67007D92C5 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A1C3F29BFFE67007D92C5 /* FeatureCell.swift */; };
 		805016D829EB00BD005935D5 /* signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805016D729EB00BD005935D5 /* signin.swift */; };
 		8073BB8329BABA3800B29710 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BB8229BABA3800B29710 /* globals.swift */; };
+		807D978229ECA30B00CF077B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807D978129ECA30B00CF077B /* Launch Screen.storyboard */; };
 		8082DE6B29E772A4004C6616 /* FinishSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8082DE6A29E772A4004C6616 /* FinishSignUp.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		803A1C3F29BFFE67007D92C5 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		805016D729EB00BD005935D5 /* signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signin.swift; sourceTree = "<group>"; };
 		8073BB8229BABA3800B29710 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
+		807D978129ECA30B00CF077B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8082DE6A29E772A4004C6616 /* FinishSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 		8017B72229BAABBC0062AB66 = {
 			isa = PBXGroup;
 			children = (
+				807D978129ECA30B00CF077B /* Launch Screen.storyboard */,
 				8017B72D29BAABBC0062AB66 /* pennyearned */,
 				8017B73E29BAABBD0062AB66 /* pennyearnedTests */,
 				8017B74829BAABBD0062AB66 /* pennyearnedUITests */,
@@ -377,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807D978229ECA30B00CF077B /* Launch Screen.storyboard in Resources */,
 				8017B73629BAABBD0062AB66 /* Preview Assets.xcassets in Resources */,
 				8017B73329BAABBD0062AB66 /* Assets.xcassets in Resources */,
 			);
@@ -577,21 +581,24 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pennyearned/Preview Content\"";
-				DEVELOPMENT_TEAM = 2B32ZV2D2J;
+				DEVELOPMENT_TEAM = 44K4H49QS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Pennyearned;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vaibhav.pennyearned;
+				MARKETING_VERSION = 0.1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vaibhavvenkat.pennyearned;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -610,21 +617,24 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pennyearned/Preview Content\"";
-				DEVELOPMENT_TEAM = 2B32ZV2D2J;
+				DEVELOPMENT_TEAM = 44K4H49QS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Pennyearned;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vaibhav.pennyearned;
+				MARKETING_VERSION = 0.1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vaibhavvenkat.pennyearned;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

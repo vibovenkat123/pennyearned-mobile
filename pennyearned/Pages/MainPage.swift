@@ -54,7 +54,7 @@ struct ExpenseListView: View {
                     expenseToDelete = nil
                     isShowingAlert = false
                 })
-            } else if let expense = expenseToUpdate{
+            } else if let _ = expenseToUpdate{
                 return Alert(title: Text("Update Expense"), message: Text("Do you want to update this expense"), primaryButton: .default(Text("Update")) {
                     isShowingEditSheet = true
                 }, secondaryButton: .cancel() {
