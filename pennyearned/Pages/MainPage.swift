@@ -141,6 +141,7 @@ struct ExpenseFormView: View {
     @Binding var newExpenseSpent: Int
     @FocusState var isFocused : Bool
     let addUserExpense: () -> Void
+    let getAllExpenses: () -> Void
     
     var body: some View {
         VStack {
@@ -154,17 +155,29 @@ struct ExpenseFormView: View {
                     .focused($isFocused)
             }
             .padding(.bottom, 10)
-            
-            Button(action: {
-                isFocused = false
-                addUserExpense()
-            }) {
-                Text("Add")
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .background(Globals.btnColor)
-                    .cornerRadius(10)
+            HStack {
+                Button(action: {
+                    isFocused = false
+                    addUserExpense()
+                }) {
+                    Text("Add")
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 20)
+                        .background(Globals.btnColor)
+                        .cornerRadius(10)
+                }
+                Button(action: {
+                    isFocused = false
+                    getAllExpenses()
+                }) {
+                    Text("Refresh")
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 20)
+                        .background(Globals.btnColor)
+                        .cornerRadius(10)
+                }
             }
         }
         .padding()
@@ -205,6 +218,21 @@ struct MainPage: View {
                         }
                     case .bad:
                         print("Error: couldn't insert expense")
+                    }
+                }
+            } getAllExpenses: {
+                GetAll(userId: user.id) { result in
+                    switch result {
+                    case .statusBad(let code):
+                        if code == 404 {
+                            self.expenses = []
+                        }
+                    case .good(let expenses):
+                        self.expenses = expenses
+                        newExpenseName = ""
+                        newExpenseSpent = 0
+                    case .bad(let msg):
+                        print("Error: \(msg)")
                     }
                 }
             }
