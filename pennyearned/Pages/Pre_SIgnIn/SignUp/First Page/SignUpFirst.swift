@@ -25,7 +25,6 @@ struct FirstSignUpPage: View {
                                     .onAppear(perform:{
                                         validateEmail(email: email)
                                     })
-                                    .navigationBarBackButtonHidden(true)
                             ),
                            text: "Verify Email", imageName: "arrow.forward")
             }
