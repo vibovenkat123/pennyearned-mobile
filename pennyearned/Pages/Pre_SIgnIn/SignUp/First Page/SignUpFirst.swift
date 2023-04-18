@@ -33,7 +33,6 @@ struct FirstSignUpPage: View {
             VStack {
                 NavigationLink(destination:
                                 SignInPage()
-                    .navigationBarBackButtonHidden(true)
                 ) {
                     Text("Already have an account? Sign In")
                 }
