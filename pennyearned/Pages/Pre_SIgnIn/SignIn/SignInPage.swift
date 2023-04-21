@@ -29,11 +29,13 @@ struct ThisView: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .textContentType(.username)
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 
                 FormInputField(text: $password, placeholder: "Password", secure: true)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .textContentType(.password)
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 Button() {
                     Globals.keychain["password"] = password
                     Globals.keychain["username"] = username
@@ -51,12 +53,9 @@ struct ThisView: View {
                 } label: {
                     Text("Sign In")
                         .padding()
-                        .padding(.leading, 60)
-                        .padding(.trailing, 60)
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 }
-                .background(Globals.btnColor)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                .buttonStyle(RoundedButtonStyle())
                 .alert("Incorrect username or password",
                        isPresented: $invalid) {
                 }

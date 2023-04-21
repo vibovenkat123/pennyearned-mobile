@@ -6,10 +6,14 @@
 //
 
 import Foundation
+enum SignUpResFirst {
+    case BadEmail
+    case Good
+}
 func validatePwd(password: String) -> Bool {
     return password.count >= 8 && password.count <= 20
 }
-func validateEmail(email: String) {
+func validateEmail(email: String, completion: @escaping (SignUpResFirst) -> Void) {
     guard let url = URL(string: "\(Globals.userServer)/v1/api/user") else {
         return
     }
@@ -29,8 +33,12 @@ func validateEmail(email: String) {
             return
         }
         guard 202 ~= res.statusCode else {
+            if res.statusCode == 400 {
+                completion(.BadEmail)
+            }
             return
         }
+        completion(.Good)
     })
     task.resume()
 }

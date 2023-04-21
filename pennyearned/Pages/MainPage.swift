@@ -25,24 +25,31 @@ struct ExpenseListView: View {
                         Text("\(daysSinceLastUpdate(dateUpdated: expense.date_updated))").font(.caption)
                     }.foregroundColor(.primary)
                     Spacer()
-                    Image(systemName: "dollarsign.circle")
-                        .foregroundColor(.blue)
                     Button(action: {
                         expenseToUpdate = expense
                         isShowingAlert = true
                     }) {
                         Image(systemName: "square.and.pencil")
                     }
-                    .foregroundColor(.green)
+                    .foregroundColor(.primary)
                     Button(action: {
                         expenseToDelete = expense
                         isShowingAlert = true
                     }) {
                         Image(systemName: "trash")
                     }
-                    .foregroundColor(.red)
+                    .foregroundColor(.primary)
                 }
+
             }
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.primary, lineWidth: 3)
+                    .padding(.bottom, 20)
+                    .padding(.leading, 6)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            )
+            .padding(.bottom, 20)
         }
         .listStyle(.insetGrouped)
         .alert(isPresented: $isShowingAlert) {
@@ -55,7 +62,7 @@ struct ExpenseListView: View {
                     isShowingAlert = false
                 })
             } else if let _ = expenseToUpdate{
-                return Alert(title: Text("Update Expense"), message: Text("Do you want to update this expense"), primaryButton: .default(Text("Update")) {
+                return Alert(title: Text("Update Expense"), message: Text("Do you want to update this expense?"), primaryButton: .default(Text("Update")) {
                     isShowingEditSheet = true
                 }, secondaryButton: .cancel() {
                     expenseToUpdate = nil
@@ -109,12 +116,12 @@ struct ExpenseEditView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TextField(expense.name, text: $newName)
+                Text("Edit Expense")
+                    .font(.title)
                     .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("$\(expense.spent)", text: $newSpent)
-                    .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                FormInputField(text: $newName, placeholder: expense.name, secure: false)
+                    .padding(.top, 30)
+                FormInputField(text: $newSpent, placeholder: "$\(expense.spent)", secure: false)
                     .keyboardType(.numberPad)
                 Spacer()
                 Button(action: {
@@ -122,17 +129,13 @@ struct ExpenseEditView: View {
                     isShowingSheet = false
                 }) {
                     Text("Save")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
                         .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Globals.btnColor)
-                        )
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
-            .padding()
-            .navigationTitle("Edit Expense")
+            .padding(.trailing, 30)
+            .padding(.leading, 30)
+            .buttonStyle(RoundedButtonStyle())
         }
     }
 }
@@ -147,37 +150,46 @@ struct ExpenseFormView: View {
         VStack {
             HStack {
                 TextField("Name", text: $newExpenseName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.primary, lineWidth: 3)
+                            .padding(.leading, 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    )
+                    .foregroundColor(.primary)
                     .focused($isFocused)
                 TextField("Spent", value: $newExpenseSpent, formatter: NumberFormatter())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.primary, lineWidth: 3)
+                            .padding(.leading, 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    )
+                    .foregroundColor(.primary)
                     .keyboardType(.numberPad)
                     .focused($isFocused)
             }
-            .padding(.bottom, 10)
             HStack {
                 Button(action: {
                     isFocused = false
                     addUserExpense()
                 }) {
                     Text("Add")
-                        .foregroundColor(.white)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 20)
-                        .background(Globals.btnColor)
-                        .cornerRadius(10)
+                        .padding()
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 }
+                .buttonStyle(RoundedButtonStyle())
                 Button(action: {
                     isFocused = false
                     getAllExpenses()
                 }) {
                     Text("Refresh")
-                        .foregroundColor(.white)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 20)
-                        .background(Globals.btnColor)
-                        .cornerRadius(10)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
                 }
+                .buttonStyle(RoundedButtonStyle())
             }
         }
         .padding()

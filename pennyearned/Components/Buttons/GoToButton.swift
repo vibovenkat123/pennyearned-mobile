@@ -21,12 +21,8 @@ struct GoToButton: View {
             NavigationLink(destination: destination) {
                 ButtonContent(text: text, imageName: imageName)
             }
-            .foregroundColor(.white)
-            .padding()
-            .background(Globals.btnColor)
-            .cornerRadius(10)
+            .buttonStyle(RoundedButtonStyle())
         }
-        .padding()
     }
 }
 struct ButtonContent: View {

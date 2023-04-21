@@ -30,6 +30,7 @@
 		8073BB8329BABA3800B29710 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BB8229BABA3800B29710 /* globals.swift */; };
 		807D978229ECA30B00CF077B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807D978129ECA30B00CF077B /* Launch Screen.storyboard */; };
 		8082DE6B29E772A4004C6616 /* FinishSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8082DE6A29E772A4004C6616 /* FinishSignUp.swift */; };
+		80B0C3AB29F2095C00030362 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B0C3AA29F2095C00030362 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		8073BB8229BABA3800B29710 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		807D978129ECA30B00CF077B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8082DE6A29E772A4004C6616 /* FinishSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignUp.swift; sourceTree = "<group>"; };
+		80B0C3AA29F2095C00030362 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				803A1C2929BEA9C3007D92C5 /* GoToButton.swift */,
+				80B0C3AA29F2095C00030362 /* CustomButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				8017B72F29BAABBC0062AB66 /* pennyearnedApp.swift in Sources */,
 				803A1C2029BE9AF4007D92C5 /* signup.swift in Sources */,
 				8027026829EB14410070EE7A /* MainPage.swift in Sources */,
+				80B0C3AB29F2095C00030362 /* CustomButton.swift in Sources */,
 				803A1C2A29BEA9C3007D92C5 /* GoToButton.swift in Sources */,
 				803A1C2429BE9CC0007D92C5 /* SignUpFirst.swift in Sources */,
 				803A1C1E29BE9784007D92C5 /* BeginningPage.swift in Sources */,
@@ -597,7 +601,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.7;
+				MARKETING_VERSION = 0.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vaibhavvenkat.pennyearned;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -633,7 +637,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.7;
+				MARKETING_VERSION = 0.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vaibhavvenkat.pennyearned;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

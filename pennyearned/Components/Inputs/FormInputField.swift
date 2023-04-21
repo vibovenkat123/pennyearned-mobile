@@ -23,18 +23,30 @@ struct FormInputField: View {
                     placeholder,
                     text: text
                 )
+                .padding(20)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.primary, lineWidth: 3)
+                        .padding(.bottom, 3)
+                        .padding(.leading, 6)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                )
                 .foregroundColor(.primary)
             } else {
                 SecureField(
                     placeholder,
                     text: text
                 )
+                .padding(20)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.primary, lineWidth: 3)
+                        .padding(.bottom, 3)
+                        .padding(.leading, 6)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                )
                 .foregroundColor(.primary)
             }
-            Divider()
-                .frame(height: 1)
-                .padding(.horizontal, 30)
-                .background(.primary)
         }
         .padding(.bottom, 60)
     }

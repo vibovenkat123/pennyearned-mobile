@@ -25,14 +25,14 @@ func validateEmail(email: String) -> Bool {
     return emailPred.evaluate(with: email)
 }
 
-enum Response {
+enum FinishSignUpRes {
     case invalidCode
     case misc
     case good
     case usernameAlrFound
     case msg(String)
 }
-func finishSignup(credentials: Credentials, code: String, completion: @escaping (Response) -> Void) {
+func finishSignup(credentials: Credentials, code: String, completion: @escaping (FinishSignUpRes) -> Void) {
     let account = credentials.username
     let password = credentials.password
     guard let url = URL(string: "\(Globals.userServer)/v1/api/user/verify/\(code)") else {
@@ -48,7 +48,7 @@ func finishSignup(credentials: Credentials, code: String, completion: @escaping 
         "password": password,
     ]
     request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-    var err = Response.good
+    var err = FinishSignUpRes.good
     let task = URLSession.shared.dataTask(with: request, completionHandler: { data, res, error in
         guard
             let res = res as? HTTPURLResponse,
@@ -60,11 +60,11 @@ func finishSignup(credentials: Credentials, code: String, completion: @escaping 
         guard res.statusCode == 201 else {
             switch res.statusCode {
             case 404:
-                err = Response.invalidCode
+                err = FinishSignUpRes.invalidCode
             case 409:
-                err = Response.usernameAlrFound
+                err = FinishSignUpRes.usernameAlrFound
             default:
-                err = Response.msg("Unkown \(res.statusCode)")
+                err = FinishSignUpRes.msg("Unkown \(res.statusCode)")
             }
             completion(err)
             return

@@ -6,12 +6,20 @@
 
 import SwiftUI
 struct FirstSignUpPage: View {
-    @State private var email: String = ""
-    @State private var showAlert: Bool = false
-    @State private var emailBad: Bool
-    init(emailBad: Bool) {
-        self.emailBad = emailBad
+    @State var nextPage: Bool = false
+    @State var email: String = ""
+    var body: some View {
+        if nextPage {
+            SecondSignUpPage(email: email)
+        } else {
+            SignUpFirstPage(email: $email, nextPage: $nextPage)
+        }
     }
+}
+struct SignUpFirstPage: View {
+    @Binding var email: String
+    @State private var showAlert: Bool = false
+    @Binding var nextPage: Bool
     var body: some View {
         NavigationStack {
             VStack{
@@ -19,29 +27,36 @@ struct FirstSignUpPage: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .textContentType(.emailAddress)
-                GoToButton(destination:
-                            AnyView(
-                                SecondSignUpPage(email: email)
-                                    .onAppear(perform:{
-                                        validateEmail(email: email)
-                                    })
-                            ),
-                           text: "Verify Email", imageName: "arrow.forward")
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                Button() {
+                    validateEmail(email: email) {res in
+                        switch res {
+                        case .Good:
+                            nextPage = true
+                        case .BadEmail:
+                            showAlert = true
+                        }
+                    }
+                } label: {
+                    Text("Verify Email")
+                        .padding()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .buttonStyle(RoundedButtonStyle())
             }
             .padding(.leading, 60)
             .padding(.trailing, 60)
-            VStack {
-                NavigationLink(destination:
-                                SignInPage()
-                ) {
-                    Text("Already have an account? Sign In")
-                }
+            
+            GoToButton(destination: AnyView(
+                SignInPage()
+            ), text: "Sign in")
+            .padding(.leading, 60)
+            .padding(.trailing, 60)
+            .padding(.top, 100)
+            .alert("Email is invalid", isPresented: $showAlert) {
             }
         }
-        .alert("Email not valid",
-               isPresented: $emailBad) {
-        }
     }
-    
+
 }
 

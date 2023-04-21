@@ -21,34 +21,22 @@ enum KeychainError: Error {
 
 
 struct SecondSignUpPage: View {
-    @State private var showingThis: Bool = true
     @State private var completed: Bool = false
     var email: String
-    init(email: String) {
-        self.email = email
-    }
     var body: some View {
         VStack {
             if completed {
                 MainPage(user: Globals.user)
                     .navigationBarBackButtonHidden(true)
             } else {
-                if showingThis {
-                    ThisPage(completed: $completed, email: email)
-                } else {
-                    FirstSignUpPage(emailBad: true)
-                        .navigationBarBackButtonHidden(true)
-                }
+                SecondPageSignUp(completed: $completed, email: email)
             }
         }
-        .onAppear(perform: {
-            showingThis = validateEmail(email: email)
-        })
     }
 }
 
 
-struct ThisPage: View {
+struct SecondPageSignUp: View {
     @State private var code: String = ""
     @State private var password: String = ""
     @State private var username: String = ""
@@ -65,7 +53,7 @@ struct ThisPage: View {
     var body: some View {
         NavigationStack {
             VStack{
-                FormInputField(text: $code, placeholder: "Code (check inbox or spam/junk)", secure: false)
+                FormInputField(text: $code, placeholder: "Code (check All Mail)", secure: false)
                     .keyboardType(.numberPad)
                     .onReceive(Just(code)) { newCode in
                         let filtered = newCode.filter { "0123456789".contains($0) }
@@ -78,6 +66,7 @@ struct ThisPage: View {
                             code = String(code.prefix(6))
                         }
                     }
+                    .frame(minWidth: 0, maxWidth: .infinity)
                 FormInputField(text: $username, placeholder: "Username", secure: false)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -87,7 +76,7 @@ struct ThisPage: View {
                             username = String(username.prefix(12))
                         }
                     }
-                
+                    .frame(minWidth: 0, maxWidth: .infinity)
                 FormInputField(text: $password, placeholder: "Password", secure: true)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -97,6 +86,7 @@ struct ThisPage: View {
                             password = String(password.prefix(20))
                         }
                     }
+                    .frame(minWidth: 0, maxWidth: .infinity)
                 Button() {
                     if !validateCode(code: code) {
                         codeBad = true
@@ -133,13 +123,9 @@ struct ThisPage: View {
                 } label: {
                     Text("Sign Up")
                         .padding()
-                        .padding(.leading, 60)
-                        .padding(.trailing, 60)
-                    
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 }
-                .background(Globals.btnColor)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                .buttonStyle(RoundedButtonStyle())
                 .alert("Password must be at least 8 and less than or equal to 20 characters",
                        isPresented: $pwdBad) {
                 }

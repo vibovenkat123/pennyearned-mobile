@@ -21,7 +21,7 @@ struct ContentView: View {
                 // the very first page you see
                 BeginningPage(onWelcome: $onWelcome, onSignup: $onSignUp)
             } else if onSignUp {
-                FirstSignUpPage(emailBad: false)
+                FirstSignUpPage()
             }
         }
         .onAppear(perform: {

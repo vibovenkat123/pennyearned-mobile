@@ -12,7 +12,7 @@ struct BeginningPage: View {
     @Binding var onSignup: Bool
     var body: some View {
         VStack {
-            FirstSignUpPage(emailBad: false)
+            FirstSignUpPage()
         }.sheet(isPresented: $onWelcome, content: {
             VStack {
                 Spacer()
@@ -21,19 +21,13 @@ struct BeginningPage: View {
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 48)
-                Text("By Vaibhav Venkat")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 48)
-                    .foregroundColor(.gray)
                 Spacer()
                 VStack(spacing: 24) {
-                    FeatureCell(image: "dollarsign.square", title: "Organize your expenses", subtitle: "See whats costing you the most, and work towards cutting it down", color: .gray)
+                    FeatureCell(image: "dollarsign.square", title: "Organize your expenses", subtitle: "See whats costing you the most, and work towards cutting it down", color: .primary)
                     
-                    FeatureCell(image: "cloud", title: "All synced", subtitle: "Pennyearned allows you to kep your expenses synced across other devices", color: .blue)
+                    FeatureCell(image: "cloud", title: "All synced", subtitle: "Pennyearned allows you to kep your expenses synced across other devices", color: .primary)
                     
-                    FeatureCell(image: "lock", title: "No credit card required", subtitle: "Pennyearned keeps the sensitive data out of this, it doesn't use a credit card to track income or expenses", color: .green)
+                    FeatureCell(image: "lock", title: "No credit card required", subtitle: "Pennyearned keeps the sensitive data out of this, it doesn't use a credit card to track income or expenses", color: .primary)
                 }
                 .padding(.leading)
                 Spacer()
@@ -43,18 +37,21 @@ struct BeginningPage: View {
                         onWelcome = false
                         onSignup = true
                     }) {
-                        HStack {
+                        HStack{
                             Spacer()
                             Text("Get Started")
+                                .fontWeight(.semibold)
+                                .padding()
+                                .cornerRadius(10)
                             Spacer()
                         }
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Globals.btnColor)
                     .cornerRadius(10)
                 }
                 .padding()
+                .buttonStyle(RoundedButtonStyle(borderWidth: 3, cornerRadius: 10, borderColor: .primary))
                 Spacer()
             }
             .interactiveDismissDisabled()
