@@ -14,15 +14,19 @@ struct ExpenseListView: View {
     @State private var isShowingEditSheet = false
     @State private var expenseToDelete: Expense?
     @State private var expenseToUpdate: Expense?
+    let dateFormatter = DateFormatter()
     var body: some View {
-        List(expenses, id: \.id) { expense in
+        List(expenses.sorted(by: { $0.spent > $1.spent }), id: \.id) { expense in
             Button(action: {
             }) {
                 HStack {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(expense.name).font(.headline)
                         Text("$\(expense.spent)").font(.subheadline)
-                        Text("\(daysSinceLastUpdate(dateUpdated: expense.date_updated))").font(.caption)
+                        if let date = getDate(from: expense.date_updated) {
+                            Text("\(formatDate(date: date))")
+                                .font(.caption)
+                        }
                     }.foregroundColor(.primary)
                     Spacer()
                     Button(action: {
@@ -51,6 +55,9 @@ struct ExpenseListView: View {
             )
             .padding(.bottom, 20)
         }
+        .onAppear(perform: {
+            self.dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        })
         .listStyle(.insetGrouped)
         .alert(isPresented: $isShowingAlert) {
             if let expense = expenseToDelete {
@@ -78,31 +85,17 @@ struct ExpenseListView: View {
             }
         }
     }
-    
-}
-private func daysSinceLastUpdate(dateUpdated: String) -> String {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    
-    if let date = formatter.date(from: dateUpdated) {
-        let calendar = Calendar.current
-        let now = Date()
-        let components = calendar.dateComponents([.day, .hour, .minute, .second], from: date, to: now)
-        
-        if let days = components.day, days > 0 {
-            return "\(days) \(days == 1 ? "day": "days") ago"
-        } else if let hours = components.hour, hours > 0 {
-            return "\(hours) \(hours == 1 ? "hour": "hours") ago"
-        } else if let minutes = components.minute, minutes > 0 {
-            return "\(minutes) \(minutes == 1 ? "minute" : "minutes") ago"
-        } else if let seconds = components.second, seconds > 0 {
-            return "\(seconds) \(seconds == 1 ? "second" : "seconds") ago"
-        } else {
-            return "now"
-        }
-    } else {
-        return dateUpdated
+    private func getDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: dateString)
+    }
+
+    private func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
     }
 }
 
